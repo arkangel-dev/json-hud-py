@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_year">
      <attribute name="title">
@@ -249,7 +249,7 @@
      <attribute name="title">
       <string>Intakes</string>
      </attribute>
-     <widget class="QListWidget" name="list_year_2">
+     <widget class="QListWidget" name="list_intakes">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -276,12 +276,12 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>100</width>
+         <width>140</width>
          <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Select an year</string>
+        <string>Select an intake month</string>
        </property>
       </widget>
       <widget class="QPushButton" name="button_add_year_2">
@@ -313,7 +313,7 @@
       <widget class="QComboBox" name="combo_programme_year_2">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>170</x>
          <y>30</y>
          <width>180</width>
          <height>22</height>
@@ -379,6 +379,91 @@
          <string>December</string>
         </property>
        </item>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>160</y>
+        <width>490</width>
+        <height>180</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Copy details</string>
+      </property>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>160</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Year</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_year_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>130</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Copy details</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="combo_programme_year_3">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>30</y>
+         <width>190</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_year_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>140</y>
+         <width>130</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Overwite details</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="combo_programme_year_4">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>60</y>
+         <width>190</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>160</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Programme</string>
+       </property>
       </widget>
      </widget>
     </widget>

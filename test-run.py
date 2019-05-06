@@ -75,6 +75,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.button_add_year.clicked.connect(self.add_year)
         self.ui.button_delete_year.clicked.connect(self.delete_year)
         self.ui.list_year.clicked.connect(self.LoadData)
+        self.ui.list_programmes.clicked.connect(self.LoadData)
 
         # this is the debug version so I'll hide the status
         # data programmatically here..
@@ -130,39 +131,73 @@ class mywindow(QtWidgets.QMainWindow):
         # what
         #
         year_preindex = None
+        programme_preindex = None
+
         if self.ui.list_year.selectedItems():
             year_preindex = self.ui.list_year.currentRow()
+        if self.ui.list_programmes.selectedItems():
+            programme_preindex = self.ui.list_programmes.currentRow()
 
         self.ui.list_year.clear()
         self.ui.list_programmes.clear()
+        self.ui.list_intakes.clear()
         #===============================================================
         #
         # now we are going to add the
         # items in the json file to
         # the ListWidget
 
-        print(year_preindex)
+        print("Year : " + str(year_preindex))
+        print("Programme : " + str(programme_preindex))
 
         #
-        # write years
+        # add all the years from the
+        # json file to its list
         #
         for x in jsondata:
             self.ui.list_year.addItem(x)
         if len(jsondata):
             self.ui.list_year.sortItems()
-
+            #
+            # if an year is pre-selected set the
+            # cursor to that index
+            #
             if year_preindex:
                 self.ui.list_year.setCurrentRow(year_preindex)
             else:
                 self.ui.list_year.setCurrentRow(0)
         #
-        # write programmes
+        # add all the programmes from the json
+        # file to the list
         #
         for x in jsondata[self.ui.list_year.currentItem().text()]:
             self.ui.list_programmes.addItem(x)
         if len(jsondata[self.ui.list_year.currentItem().text()]):
             self.ui.list_programmes.sortItems()
-            self.ui.list_programmes.setCurrentRow(0)
+            if programme_preindex:
+                self.ui.list_programmes.setCurrentRow(programme_preindex)
+            else:
+                self.ui.list_programmes.setCurrentRow(0)
+
+        #
+        # before we add anything to the intakes
+        # we have to check if there are any programmes
+        # in that selected year. or else json module
+        # will return an invalid index error
+        #
+        if (len(jsondata[self.ui.list_year.currentItem().text()])):
+            #
+            # add all the intake months to the
+            # list from the json data
+            #
+            for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]:
+                #
+                # Note : Dont forget to lower() the value of the items of this list
+                #
+                self.ui.list_intakes.addItem(x.capitalize())
+            if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
+                self.ui.list_intakes.sortItems()
+                self.ui.list_intakes.setCurrentRow(0)
 
         #==============================================================
 
