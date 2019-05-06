@@ -191,9 +191,7 @@ class mywindow(QtWidgets.QMainWindow):
             # list from the json data
             #
             for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]:
-                #
                 # Note : Dont forget to lower() the value of the items of this list
-                #
                 self.ui.list_intakes.addItem(x.capitalize())
             if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
                 self.ui.list_intakes.sortItems()

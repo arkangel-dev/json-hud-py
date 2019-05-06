@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1104</width>
-    <height>589</height>
+    <width>1099</width>
+    <height>583</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_year">
      <attribute name="title">
@@ -469,8 +469,390 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Session Data</string>
+      <string>Sessions</string>
      </attribute>
+     <widget class="QListWidget" name="list_intakes_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>221</width>
+        <height>460</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTabWidget" name="tabWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>20</y>
+        <width>500</width>
+        <height>460</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Add session</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>470</width>
+          <height>390</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Add new session</string>
+        </property>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>140</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Select a day</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="combo_programme_year_5">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>30</y>
+           <width>210</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>Sunday</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Monday</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Tuesday</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Wednesday</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Thursday</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Friday</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Saturday</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>140</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Session name</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>60</y>
+           <width>210</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>90</y>
+           <width>140</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Session Venue</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_4">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>90</y>
+           <width>210</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>120</y>
+           <width>140</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Session lecuturer</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_5">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>120</y>
+           <width>210</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="checkBox">
+         <property name="geometry">
+          <rect>
+           <x>6</x>
+           <y>206</y>
+           <width>110</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string>Laptop needed</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>150</y>
+           <width>140</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Start time</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>180</y>
+           <width>140</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>End time</string>
+         </property>
+        </widget>
+        <widget class="QTimeEdit" name="timeEdit">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>150</y>
+           <width>118</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QTimeEdit" name="timeEdit_2">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>180</y>
+           <width>118</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="button_add_year_3">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>250</y>
+           <width>130</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Add Intake</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="button_delete_year_3">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>310</y>
+           <width>130</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Delete Intake</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="button_delete_year_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>280</y>
+           <width>130</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Save modification</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>Copy sessions</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>470</width>
+          <height>180</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Copy details</string>
+        </property>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>160</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Year</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="button_year_8">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>140</y>
+           <width>130</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Copy details</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="combo_programme_year_7">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>30</y>
+           <width>190</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="button_year_9">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>140</y>
+           <width>130</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Overwite details</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="combo_programme_year_8">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>60</y>
+           <width>190</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_16">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>160</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Programme</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_17">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>90</y>
+           <width>160</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Intake</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="combo_programme_year_9">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>90</y>
+           <width>190</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
     </widget>
    </widget>
    <widget class="QTextEdit" name="jsonraw">
@@ -545,22 +927,25 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1104</width>
+     <width>1099</width>
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuHello_World">
-    <property name="title">
-     <string>JSON</string>
-    </property>
-   </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionInfo_2"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuHello_World"/>
+   <addaction name="menuAbout"/>
   </widget>
   <action name="actionGenerate_JSON">
    <property name="text">
@@ -580,6 +965,21 @@
   <action name="actionInfo">
    <property name="text">
     <string>Info</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionInfo_2">
+   <property name="text">
+    <string>Info</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
    </property>
   </action>
  </widget>
