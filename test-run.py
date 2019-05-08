@@ -50,8 +50,9 @@
 # sys.exit(app.exec())
 
 import sys
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 from user_interface_main import Ui_MainWindow
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QAction, QTableWidget,QTableWidgetItem,QVBoxLayout
 import libraries as lib
 import json
 
@@ -217,8 +218,26 @@ class mywindow(QtWidgets.QMainWindow):
             # dayarray = ["sunday","monday","tuesday","wednesday","thurday","friday","saturday",]
             # for y in dayarray:
                 # for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()][self.ui.list_intakes.currentItem().text().lower()][y]["sessions"]:
+            
+            while (self.ui.table_sessions.rowCount() > 0):
+                {
+                    self.ui.table_sessions.removeRow(0)
+                }
             for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()][self.ui.list_intakes.currentItem().text().lower()][self.ui.combo_list_select_day.currentText().lower()]["sessions"]:
-                self.ui.list_sessions.addItem(x[0] + " (" + x[1] + " to " + x[2] + ")")
+                self.ui.list_sessions.addItem(x[0]) #+ " (" + x[1] + " to " + x[2] + ")")
+                #
+                # time to populate
+                # the table
+                #
+
+
+                self.ui.table_sessions.insertRow(0)
+                self.ui.table_sessions.setItem(0,0, QTableWidgetItem(x[0]))
+                self.ui.table_sessions.setItem(0,1, QTableWidgetItem(x[4]))
+                self.ui.table_sessions.setItem(0,2, QTableWidgetItem(x[1]))
+                self.ui.table_sessions.setItem(0,3, QTableWidgetItem(x[2]))
+                self.ui.table_sessions.setItem(0,4, QTableWidgetItem(x[5]))
+                self.ui.table_sessions.setItem(0,5, QTableWidgetItem(x[3]))
             # if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
         except:
             print("No data here")
@@ -230,6 +249,8 @@ class mywindow(QtWidgets.QMainWindow):
         print("Intake : " + str(intake_preindex))
         print("Selected day : " + str(self.ui.combo_list_select_day.currentText()))
         print("***********************************")
+
+
 
 
         #==============================================================
