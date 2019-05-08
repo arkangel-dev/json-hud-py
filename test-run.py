@@ -76,6 +76,8 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.button_delete_year.clicked.connect(self.delete_year)
         self.ui.list_year.clicked.connect(self.LoadData)
         self.ui.list_programmes.clicked.connect(self.LoadData)
+        self.ui.list_intakes.clicked.connect(self.LoadData)
+        self.ui.combo_list_select_day.currentTextChanged.connect(self.LoadData)
 
         # this is the debug version so I'll hide the status
         # data programmatically here..
@@ -132,23 +134,25 @@ class mywindow(QtWidgets.QMainWindow):
         #
         year_preindex = None
         programme_preindex = None
+        intake_preindex = None
 
         if self.ui.list_year.selectedItems():
             year_preindex = self.ui.list_year.currentRow()
         if self.ui.list_programmes.selectedItems():
             programme_preindex = self.ui.list_programmes.currentRow()
+        if self.ui.list_intakes.selectedItems():
+            intake_preindex = self.ui.list_intakes.currentRow()
 
         self.ui.list_year.clear()
         self.ui.list_programmes.clear()
         self.ui.list_intakes.clear()
+        self.ui.list_sessions.clear()
         #===============================================================
         #
         # now we are going to add the
         # items in the json file to
         # the ListWidget
 
-        print("Year : " + str(year_preindex))
-        print("Programme : " + str(programme_preindex))
 
         #
         # add all the years from the
@@ -170,14 +174,17 @@ class mywindow(QtWidgets.QMainWindow):
         # add all the programmes from the json
         # file to the list
         #
-        for x in jsondata[self.ui.list_year.currentItem().text()]:
-            self.ui.list_programmes.addItem(x)
-        if len(jsondata[self.ui.list_year.currentItem().text()]):
-            self.ui.list_programmes.sortItems()
-            if programme_preindex:
-                self.ui.list_programmes.setCurrentRow(programme_preindex)
-            else:
-                self.ui.list_programmes.setCurrentRow(0)
+        try:
+            for x in jsondata[self.ui.list_year.currentItem().text()]:
+                self.ui.list_programmes.addItem(x)
+            if len(jsondata[self.ui.list_year.currentItem().text()]):
+                self.ui.list_programmes.sortItems()
+                if programme_preindex:
+                    self.ui.list_programmes.setCurrentRow(programme_preindex)
+                else:
+                    self.ui.list_programmes.setCurrentRow(0)
+        except:
+            print("No data here")
 
         #
         # before we add anything to the intakes
@@ -185,7 +192,7 @@ class mywindow(QtWidgets.QMainWindow):
         # in that selected year. or else json module
         # will return an invalid index error
         #
-        if (len(jsondata[self.ui.list_year.currentItem().text()])):
+        try:
             #
             # add all the intake months to the
             # list from the json data
@@ -195,7 +202,35 @@ class mywindow(QtWidgets.QMainWindow):
                 self.ui.list_intakes.addItem(x.capitalize())
             if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
                 self.ui.list_intakes.sortItems()
-                self.ui.list_intakes.setCurrentRow(0)
+                if intake_preindex:
+                    self.ui.list_intakes.setCurrentRow(intake_preindex)
+                else:
+                    self.ui.list_intakes.setCurrentRow(0)
+        except:
+            print("No data here")
+
+        #
+        # now its time to add the sessions to the programme
+        # lets think...
+        #
+        try:
+            # dayarray = ["sunday","monday","tuesday","wednesday","thurday","friday","saturday",]
+            # for y in dayarray:
+                # for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()][self.ui.list_intakes.currentItem().text().lower()][y]["sessions"]:
+            for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()][self.ui.list_intakes.currentItem().text().lower()][self.ui.combo_list_select_day.currentText().lower()]["sessions"]:
+                self.ui.list_sessions.addItem(x[0] + " (" + x[1] + " to " + x[2] + ")")
+            # if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
+        except:
+            print("No data here")
+
+
+        
+        print("Year : " + str(year_preindex))
+        print("Programme : " + str(programme_preindex))
+        print("Intake : " + str(intake_preindex))
+        print("Selected day : " + str(self.ui.combo_list_select_day.currentText()))
+        print("***********************************")
+
 
         #==============================================================
 

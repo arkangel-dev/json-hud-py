@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_year">
      <attribute name="title">
@@ -471,13 +471,13 @@
      <attribute name="title">
       <string>Sessions</string>
      </attribute>
-     <widget class="QListWidget" name="list_intakes_2">
+     <widget class="QListWidget" name="list_sessions">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>20</y>
+        <y>40</y>
         <width>221</width>
-        <height>460</height>
+        <height>440</height>
        </rect>
       </property>
      </widget>
@@ -503,7 +503,7 @@
           <x>10</x>
           <y>10</y>
           <width>470</width>
-          <height>390</height>
+          <height>350</height>
          </rect>
         </property>
         <property name="title">
@@ -853,6 +853,51 @@
        </widget>
       </widget>
      </widget>
+     <widget class="QComboBox" name="combo_list_select_day">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>220</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Sunday</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Monday</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Tuesday</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Wednesday</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Thursday</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Friday</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Saturday</string>
+       </property>
+      </item>
+     </widget>
     </widget>
    </widget>
    <widget class="QTextEdit" name="jsonraw">
@@ -928,7 +973,7 @@
      <x>0</x>
      <y>0</y>
      <width>1099</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'user-interface-main.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.12.2
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -131,16 +132,16 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
-        self.list_intakes_2 = QtWidgets.QListWidget(self.tab_2)
-        self.list_intakes_2.setGeometry(QtCore.QRect(20, 20, 221, 460))
-        self.list_intakes_2.setObjectName("list_intakes_2")
+        self.list_sessions = QtWidgets.QListWidget(self.tab_2)
+        self.list_sessions.setGeometry(QtCore.QRect(20, 40, 221, 440))
+        self.list_sessions.setObjectName("list_sessions")
         self.tabWidget_2 = QtWidgets.QTabWidget(self.tab_2)
         self.tabWidget_2.setGeometry(QtCore.QRect(250, 20, 500, 460))
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.tab_3 = QtWidgets.QWidget()
         self.tab_3.setObjectName("tab_3")
         self.groupBox_6 = QtWidgets.QGroupBox(self.tab_3)
-        self.groupBox_6.setGeometry(QtCore.QRect(10, 10, 470, 390))
+        self.groupBox_6.setGeometry(QtCore.QRect(10, 10, 470, 350))
         self.groupBox_6.setObjectName("groupBox_6")
         self.label_7 = QtWidgets.QLabel(self.groupBox_6)
         self.label_7.setGeometry(QtCore.QRect(10, 30, 140, 20))
@@ -229,6 +230,16 @@ class Ui_MainWindow(object):
         self.combo_programme_year_9.setGeometry(QtCore.QRect(150, 90, 190, 22))
         self.combo_programme_year_9.setObjectName("combo_programme_year_9")
         self.tabWidget_2.addTab(self.tab_4, "")
+        self.combo_list_select_day = QtWidgets.QComboBox(self.tab_2)
+        self.combo_list_select_day.setGeometry(QtCore.QRect(20, 10, 220, 22))
+        self.combo_list_select_day.setObjectName("combo_list_select_day")
+        self.combo_list_select_day.addItem("")
+        self.combo_list_select_day.addItem("")
+        self.combo_list_select_day.addItem("")
+        self.combo_list_select_day.addItem("")
+        self.combo_list_select_day.addItem("")
+        self.combo_list_select_day.addItem("")
+        self.combo_list_select_day.addItem("")
         self.tabWidget.addTab(self.tab_2, "")
         self.jsonraw = QtWidgets.QTextEdit(self.centralwidget)
         self.jsonraw.setGeometry(QtCore.QRect(780, 130, 310, 417))
@@ -251,7 +262,7 @@ class Ui_MainWindow(object):
         self.LoadJson_2.setObjectName("LoadJson_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1099, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1099, 21))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -279,7 +290,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -348,6 +359,13 @@ class Ui_MainWindow(object):
         self.label_16.setText(_translate("MainWindow", "Programme"))
         self.label_17.setText(_translate("MainWindow", "Intake"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_4), _translate("MainWindow", "Copy sessions"))
+        self.combo_list_select_day.setItemText(0, _translate("MainWindow", "Sunday"))
+        self.combo_list_select_day.setItemText(1, _translate("MainWindow", "Monday"))
+        self.combo_list_select_day.setItemText(2, _translate("MainWindow", "Tuesday"))
+        self.combo_list_select_day.setItemText(3, _translate("MainWindow", "Wednesday"))
+        self.combo_list_select_day.setItemText(4, _translate("MainWindow", "Thursday"))
+        self.combo_list_select_day.setItemText(5, _translate("MainWindow", "Friday"))
+        self.combo_list_select_day.setItemText(6, _translate("MainWindow", "Saturday"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Sessions"))
         self.LoadJson.setText(_translate("MainWindow", "Load JSON Data"))
         self.status_present.setText(_translate("MainWindow", "This is the sample error message"))
@@ -361,4 +379,5 @@ class Ui_MainWindow(object):
         self.actionHelp.setText(_translate("MainWindow", "Help"))
         self.actionInfo_2.setText(_translate("MainWindow", "Info"))
         self.actionQuit.setText(_translate("MainWindow", "Quit"))
+
 
