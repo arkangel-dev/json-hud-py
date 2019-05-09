@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_year">
      <attribute name="title">
@@ -135,7 +135,7 @@
         <string>Programme name</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="programme_name_add">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -145,7 +145,7 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_year_2">
+      <widget class="QPushButton" name="button_add_programme">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -158,7 +158,7 @@
         <string>Add programme</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_year_5">
+      <widget class="QPushButton" name="button_delete_programme">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -284,7 +284,7 @@
         <string>Select an intake month</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_add_year_2">
+      <widget class="QPushButton" name="button_add_intake">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -297,7 +297,7 @@
         <string>Add Intake</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_delete_year_2">
+      <widget class="QPushButton" name="button_delete_intake">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -790,7 +790,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Add Intake</string>
+          <string>Add Session</string>
          </property>
         </widget>
         <widget class="QPushButton" name="button_delete_year_3">
@@ -803,7 +803,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>Delete Intake</string>
+          <string>Delete Session</string>
          </property>
         </widget>
         <widget class="QPushButton" name="button_delete_year_4">
@@ -831,7 +831,7 @@
           <x>10</x>
           <y>10</y>
           <width>470</width>
-          <height>180</height>
+          <height>210</height>
          </rect>
         </property>
         <property name="title">
@@ -876,8 +876,8 @@
         <widget class="QPushButton" name="button_year_9">
          <property name="geometry">
           <rect>
-           <x>140</x>
-           <y>140</y>
+           <x>10</x>
+           <y>170</y>
            <width>130</width>
            <height>30</height>
           </rect>
@@ -993,7 +993,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>6</pointsize>
+      <pointsize>8</pointsize>
      </font>
     </property>
     <property name="readOnly">
@@ -1019,9 +1019,9 @@
    <widget class="QLabel" name="status_present">
     <property name="geometry">
      <rect>
-      <x>780</x>
+      <x>269</x>
       <y>10</y>
-      <width>310</width>
+      <width>821</width>
       <height>20</height>
      </rect>
     </property>

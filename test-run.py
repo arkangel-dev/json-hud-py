@@ -52,7 +52,6 @@
 import sys
 from PyQt5 import QtWidgets, QtCore, QtGui
 from user_interface_main import Ui_MainWindow
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QAction, QTableWidget,QTableWidgetItem,QVBoxLayout
 import libraries as lib
 import json
 
@@ -71,7 +70,7 @@ class mywindow(QtWidgets.QMainWindow):
         # function of another file. or a function outside this
         # class
         #
-        #self.ui.pushButton.clicked.connect(self.GenerateJson)
+
         self.ui.LoadJson.clicked.connect(self.LoadData)
         self.ui.button_add_year.clicked.connect(self.add_year)
         self.ui.button_delete_year.clicked.connect(self.delete_year)
@@ -79,6 +78,8 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.list_programmes.clicked.connect(self.LoadData)
         self.ui.list_intakes.clicked.connect(self.LoadData)
         self.ui.combo_list_select_day.currentTextChanged.connect(self.LoadData)
+        self.ui.button_add_programme.clicked.connect(self.add_programme)
+        self.ui.button_delete_programme.clicked.connect(self.delete_programm)
 
         # this is the debug version so I'll hide the status
         # data programmatically here..
@@ -148,13 +149,11 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.list_programmes.clear()
         self.ui.list_intakes.clear()
         self.ui.list_sessions.clear()
-        #===============================================================
+
         #
         # now we are going to add the
         # items in the json file to
         # the ListWidget
-
-
         #
         # add all the years from the
         # json file to its list
@@ -185,15 +184,25 @@ class mywindow(QtWidgets.QMainWindow):
                 else:
                     self.ui.list_programmes.setCurrentRow(0)
         except:
-            print("No data here")
+            print("Programme parsing error")
 
+        if self.ui.list_programmes.count() == 0:
+            print("Programmes : No data here")
+            # disable the delete programme
+            # button because that makse sense
+            self.ui.button_delete_programme.setEnabled(False)
+        else:
+            # or else enable it
+            self.ui.button_delete_programme.setEnabled(True)
+
+
+        try:
         #
         # before we add anything to the intakes
         # we have to check if there are any programmes
         # in that selected year. or else json module
         # will return an invalid index error
         #
-        try:
             #
             # add all the intake months to the
             # list from the json data
@@ -207,18 +216,23 @@ class mywindow(QtWidgets.QMainWindow):
                     self.ui.list_intakes.setCurrentRow(intake_preindex)
                 else:
                     self.ui.list_intakes.setCurrentRow(0)
-        except:
-            print("No data here")
 
+            self.ui.button_delete_intake.setEnabled(True)
+        except:
+            print("Intakes : No data here")
+
+        if self.ui.list_intakes.count() < 2:
+            self.ui.button_delete_intake.setEnabled(False)
+        else:
+            self.ui.button_delete_intake.setEnabled(True)
+
+
+
+        try:
         #
         # now its time to add the sessions to the programme
         # lets think...
         #
-        try:
-            # dayarray = ["sunday","monday","tuesday","wednesday","thurday","friday","saturday",]
-            # for y in dayarray:
-                # for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()][self.ui.list_intakes.currentItem().text().lower()][y]["sessions"]:
-            
             while (self.ui.table_sessions.rowCount() > 0):
                 {
                     self.ui.table_sessions.removeRow(0)
@@ -229,18 +243,15 @@ class mywindow(QtWidgets.QMainWindow):
                 # time to populate
                 # the table
                 #
-
-
                 self.ui.table_sessions.insertRow(0)
-                self.ui.table_sessions.setItem(0,0, QTableWidgetItem(x[0]))
-                self.ui.table_sessions.setItem(0,1, QTableWidgetItem(x[4]))
-                self.ui.table_sessions.setItem(0,2, QTableWidgetItem(x[1]))
-                self.ui.table_sessions.setItem(0,3, QTableWidgetItem(x[2]))
-                self.ui.table_sessions.setItem(0,4, QTableWidgetItem(x[5]))
-                self.ui.table_sessions.setItem(0,5, QTableWidgetItem(x[3]))
-            # if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
+                self.ui.table_sessions.setItem(0,0, QtWidgets.QTableWidgetItem(x[0]))
+                self.ui.table_sessions.setItem(0,1, QtWidgets.QTableWidgetItem(x[4]))
+                self.ui.table_sessions.setItem(0,2, QtWidgets.QTableWidgetItem(x[1]))
+                self.ui.table_sessions.setItem(0,3, QtWidgets.QTableWidgetItem(x[2]))
+                self.ui.table_sessions.setItem(0,4, QtWidgets.QTableWidgetItem(x[5]))
+                self.ui.table_sessions.setItem(0,5, QtWidgets.QTableWidgetItem(x[3]))
         except:
-            print("No data here")
+            print("Sessions : No data here")
 
 
         
@@ -250,10 +261,6 @@ class mywindow(QtWidgets.QMainWindow):
         print("Selected day : " + str(self.ui.combo_list_select_day.currentText()))
         print("***********************************")
 
-
-
-
-        #==============================================================
 
     def add_year(self):
         #
@@ -300,16 +307,74 @@ class mywindow(QtWidgets.QMainWindow):
         # this is the function to delete a year
         # from the json data
         #
+        
         if not dataloaded:
             self.ui.status_present.setText("*There is no valid JSON file loaded")
             self.ui.status_present.show()
             return()
 
-        selected_year = self.ui.list_year.currentItem().text()
-        jsonfile = mywindow.loadJsonData(self)
-        del jsonfile[selected_year]
-        self.ui.jsonraw.setText(json.dumps(jsonfile))
-        mywindow.LoadData(self)
+        if self.ui.list_year.count() != 1:
+            self.ui.status_present.hide()
+            selected_year = self.ui.list_year.currentItem().text()
+            jsonfile = mywindow.loadJsonData(self)
+            del jsonfile[selected_year]
+            self.ui.jsonraw.setText(json.dumps(jsonfile))
+            mywindow.LoadData(self)
+        else:
+            self.ui.status_present.setText("*there is only one year left")
+            self.ui.status_present.show()
+
+    def add_programme(self):
+        #
+        # so this is the function to add a programme
+        # to the programme list... pretty basic
+        #
+        if not dataloaded:
+            self.ui.status_present.setText("*There is no valid JSON file loaded")
+            self.ui.status_present.show()
+            return()
+        
+        if self.ui.programme_name_add.text():
+            #
+            # we have to check if there is any valid text
+            # in the add programme name field
+            #
+            self.ui.status_present.hide()
+            selected_year = self.ui.list_year.currentItem().text()
+            programme_name_add = self.ui.programme_name_add.text()
+            jsonfile = mywindow.loadJsonData(self)
+            jsonfile[selected_year].update({programme_name_add : {}})
+            self.ui.jsonraw.setText(json.dumps(jsonfile))
+            mywindow.LoadData(self)
+        else:
+            #
+            # if the data is not valid (aka datatype : None)
+            # insult the user
+            #
+            self.ui.status_present.setText("*you didn't type anything in the programme name, you dumbass")
+            self.ui.status_present.show()
+
+    def delete_programm(self):
+        #
+        # This is the function to delete a programme
+        # duh...
+        #
+        if not dataloaded:
+            self.ui.status_present.setText("*There is no valid JSON file loaded")
+            self.ui.status_present.show()
+            return()
+
+        if self.ui.list_programmes.count() != 1:
+            selected_year = self.ui.list_year.currentItem().text()
+            selected_programm = self.ui.list_programmes.currentItem().text()
+            jsonfile = mywindow.loadJsonData(self)
+            del jsonfile[selected_year][selected_programm]
+            self.ui.jsonraw.setText((json.dumps(jsonfile)))
+            mywindow.LoadData(self)
+        else:
+            self.ui.status_present.setText("*there is only one programme left. Add one to delete another one.")
+            self.ui.status_present.show()
+  
 
 
 app = QtWidgets.QApplication([])
