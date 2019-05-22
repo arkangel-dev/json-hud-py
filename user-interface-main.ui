@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_year">
      <attribute name="title">
@@ -105,6 +105,78 @@
        </rect>
       </property>
      </widget>
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>160</y>
+        <width>490</width>
+        <height>140</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Clone Year</string>
+      </property>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>160</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clone from</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="clone_year_button">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>130</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clone</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="clone_from_year">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>30</y>
+         <width>190</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linedit_add_year_2">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>60</y>
+         <width>191</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>100</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clone to</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_prog">
      <attribute name="title">
@@ -178,11 +250,11 @@
         <x>250</x>
         <y>160</y>
         <width>490</width>
-        <height>150</height>
+        <height>140</height>
        </rect>
       </property>
       <property name="title">
-       <string>Copy details</string>
+       <string>Clone Programme</string>
       </property>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
@@ -194,23 +266,23 @@
         </rect>
        </property>
        <property name="text">
-        <string>Year</string>
+        <string>Clone from</string>
        </property>
       </widget>
       <widget class="QPushButton" name="button_year_3">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>80</y>
+         <y>100</y>
          <width>130</width>
          <height>30</height>
         </rect>
        </property>
        <property name="text">
-        <string>Copy details</string>
+        <string>Clone</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="combo_programme_year">
+      <widget class="QComboBox" name="clone_from_programmes">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -220,17 +292,27 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_year_4">
+      <widget class="QLabel" name="label_18">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
-         <width>130</width>
-         <height>30</height>
+         <y>60</y>
+         <width>100</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Overwite details</string>
+        <string>Clone to</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="linedit_add_year_3">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>60</y>
+         <width>191</width>
+         <height>22</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -310,7 +392,7 @@
         <string>Delete Intake</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="combo_programme_year_2">
+      <widget class="QComboBox" name="combo_intake">
        <property name="geometry">
         <rect>
          <x>170</x>
@@ -387,11 +469,11 @@
         <x>250</x>
         <y>160</y>
         <width>490</width>
-        <height>180</height>
+        <height>140</height>
        </rect>
       </property>
       <property name="title">
-       <string>Copy details</string>
+       <string>Clone Intakes</string>
       </property>
       <widget class="QLabel" name="label_5">
        <property name="geometry">
@@ -403,23 +485,23 @@
         </rect>
        </property>
        <property name="text">
-        <string>Year</string>
+        <string>Clone from</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_year_6">
+      <widget class="QPushButton" name="button_year_4">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
+         <y>100</y>
          <width>130</width>
          <height>30</height>
         </rect>
        </property>
        <property name="text">
-        <string>Copy details</string>
+        <string>Clone</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="combo_programme_year_3">
+      <widget class="QComboBox" name="clone_from_intakes">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -429,20 +511,20 @@
         </rect>
        </property>
       </widget>
-      <widget class="QPushButton" name="button_year_7">
+      <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>140</y>
-         <width>130</width>
-         <height>30</height>
+         <y>60</y>
+         <width>100</width>
+         <height>20</height>
         </rect>
        </property>
        <property name="text">
-        <string>Overwite details</string>
+        <string>Clone to</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="combo_programme_year_4">
+      <widget class="QComboBox" name="combo_intake_2">
        <property name="geometry">
         <rect>
          <x>150</x>
@@ -451,19 +533,66 @@
          <height>22</height>
         </rect>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>60</y>
-         <width>160</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Programme</string>
-       </property>
+       <item>
+        <property name="text">
+         <string>January</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>February</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>March</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>April</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>May</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>June</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>July</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>August</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>September</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>October</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>November</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>December</string>
+        </property>
+       </item>
       </widget>
      </widget>
     </widget>
@@ -503,7 +632,7 @@
           <x>10</x>
           <y>10</y>
           <width>480</width>
-          <height>192</height>
+          <height>411</height>
          </rect>
         </property>
         <column>
@@ -823,7 +952,7 @@
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>Copy sessions</string>
+        <string>Clone sessions</string>
        </attribute>
        <widget class="QGroupBox" name="groupBox_7">
         <property name="geometry">
@@ -831,13 +960,13 @@
           <x>10</x>
           <y>10</y>
           <width>470</width>
-          <height>210</height>
+          <height>140</height>
          </rect>
         </property>
         <property name="title">
-         <string>Copy details</string>
+         <string>Clone sessions</string>
         </property>
-        <widget class="QLabel" name="label_15">
+        <widget class="QLabel" name="label_6">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -847,23 +976,23 @@
           </rect>
          </property>
          <property name="text">
-          <string>Year</string>
+          <string>Clone from</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="button_year_8">
+        <widget class="QPushButton" name="button_year_6">
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>140</y>
+           <y>100</y>
            <width>130</width>
            <height>30</height>
           </rect>
          </property>
          <property name="text">
-          <string>Copy details</string>
+          <string>Clone</string>
          </property>
         </widget>
-        <widget class="QComboBox" name="combo_programme_year_7">
+        <widget class="QComboBox" name="combo_programme_year_4">
          <property name="geometry">
           <rect>
            <x>150</x>
@@ -873,61 +1002,25 @@
           </rect>
          </property>
         </widget>
-        <widget class="QPushButton" name="button_year_9">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>170</y>
-           <width>130</width>
-           <height>30</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Overwite details</string>
-         </property>
-        </widget>
-        <widget class="QComboBox" name="combo_programme_year_8">
-         <property name="geometry">
-          <rect>
-           <x>150</x>
-           <y>60</y>
-           <width>190</width>
-           <height>22</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_16">
+        <widget class="QLabel" name="label_20">
          <property name="geometry">
           <rect>
            <x>10</x>
            <y>60</y>
-           <width>160</width>
+           <width>100</width>
            <height>20</height>
           </rect>
          </property>
          <property name="text">
-          <string>Programme</string>
+          <string>Clone to</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_17">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>90</y>
-           <width>160</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Intake</string>
-         </property>
-        </widget>
-        <widget class="QComboBox" name="combo_programme_year_9">
+        <widget class="QLineEdit" name="linedit_add_year_5">
          <property name="geometry">
           <rect>
            <x>150</x>
-           <y>90</y>
-           <width>190</width>
+           <y>60</y>
+           <width>191</width>
            <height>22</height>
           </rect>
          </property>
@@ -1055,7 +1148,7 @@
      <x>0</x>
      <y>0</y>
      <width>1099</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

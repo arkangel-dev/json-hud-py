@@ -50,12 +50,17 @@
 # sys.exit(app.exec())
 
 import sys
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets, QtCore, QtGui, Qt
+from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout, QGroupBox, QHBoxLayout, QLabel, QLineEdit, QTreeView, QVBoxLayout, QWidget)
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import (QDate, QDateTime, QRegExp, QSortFilterProxyModel, Qt,QTime)
+from PyQt5.QtGui import QStandardItemModel
 from user_interface_main import Ui_MainWindow
 import libraries as lib
 import json
 
 class mywindow(QtWidgets.QMainWindow):
+
     def __init__(self):
         super(mywindow, self).__init__()
         self.ui = Ui_MainWindow()
@@ -80,12 +85,23 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui.combo_list_select_day.currentTextChanged.connect(self.LoadData)
         self.ui.button_add_programme.clicked.connect(self.add_programme)
         self.ui.button_delete_programme.clicked.connect(self.delete_programm)
+        self.ui.button_add_intake.clicked.connect(self.addIntake)
+        # self.ui.clone_year_button.clicked.connect(self.testingThing)
 
         # this is the debug version so I'll hide the status
         # data programmatically here..
         self.ui.status_present.hide()
         global dataloaded
         dataloaded = False
+        
+    # def testingThing(self):
+    #     model = QStandardItemModel(0,3)
+    #     model.setHeaderData(0, Qt.Horizontal, "From")
+    #     model.setHeaderData(1, Qt.Horizontal, "To")
+    #     model.setHeaderData(2, Qt.Horizontal, "LALA")
+    #     model.insertRow(0)
+    #     model.setData(model.index(0, 0), "mailFrom")
+    #     dataView = self.ui.treeView.setModel(model)
     
     def loadJsonData(self):
         #
@@ -146,9 +162,14 @@ class mywindow(QtWidgets.QMainWindow):
             intake_preindex = self.ui.list_intakes.currentRow()
 
         self.ui.list_year.clear()
+        self.ui.clone_from_year.clear()
+
         self.ui.list_programmes.clear()
+        self.ui.clone_from_programmes.clear()
+
         self.ui.list_intakes.clear()
         self.ui.list_sessions.clear()
+        
 
         #
         # now we are going to add the
@@ -158,8 +179,10 @@ class mywindow(QtWidgets.QMainWindow):
         # add all the years from the
         # json file to its list
         #
+    
         for x in jsondata:
             self.ui.list_year.addItem(x)
+            self.ui.clone_from_year.addItem(x)
         if len(jsondata):
             self.ui.list_year.sortItems()
             #
@@ -170,12 +193,19 @@ class mywindow(QtWidgets.QMainWindow):
                 self.ui.list_year.setCurrentRow(year_preindex)
             else:
                 self.ui.list_year.setCurrentRow(0)
+
+        # update the line-edit object
+        self.ui.linedit_add_year.setText(self.ui.list_year.currentItem().text())
+
+        # load up the combo box...
+
         #
         # add all the programmes from the json
         # file to the list
         #
         try:
             for x in jsondata[self.ui.list_year.currentItem().text()]:
+                self.ui.clone_from_programmes.addItem(x)
                 self.ui.list_programmes.addItem(x)
             if len(jsondata[self.ui.list_year.currentItem().text()]):
                 self.ui.list_programmes.sortItems()
@@ -183,6 +213,10 @@ class mywindow(QtWidgets.QMainWindow):
                     self.ui.list_programmes.setCurrentRow(programme_preindex)
                 else:
                     self.ui.list_programmes.setCurrentRow(0)
+
+            # update the value of the programme name add upon every update
+            self.ui.programme_name_add.setText(self.ui.list_programmes.currentItem().text())
+
         except:
             print("Programme parsing error")
 
@@ -209,6 +243,7 @@ class mywindow(QtWidgets.QMainWindow):
             #
             for x in jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]:
                 # Note : Dont forget to lower() the value of the items of this list
+                self.ui.clone_from_intakes.addItem(x.capitalize())
                 self.ui.list_intakes.addItem(x.capitalize())
             if len(jsondata[self.ui.list_year.currentItem().text()][self.ui.list_programmes.currentItem().text()]):
                 self.ui.list_intakes.sortItems()
@@ -301,6 +336,8 @@ class mywindow(QtWidgets.QMainWindow):
         #
         self.ui.jsonraw.setText(json.dumps(jsonfile))
         mywindow.LoadData(self)
+    
+
 
     def delete_year(self):
         #
@@ -353,6 +390,23 @@ class mywindow(QtWidgets.QMainWindow):
             #
             self.ui.status_present.setText("*you didn't type anything in the programme name, you dumbass")
             self.ui.status_present.show()
+
+    def addIntake(self):
+        if not dataloaded:
+            self.ui.status_present.setText("*There is no valid JSON file loaded")
+            self.ui.status_present.show()
+            return()
+
+        year = self.ui.list_year.currentItem().text()
+        programme = self.ui.list_programmes.currentItem().text()
+        selected_intake_month = self.ui.combo_intake.currentText()
+        jsonFile = mywindow.loadJsonData(self)
+
+        if jsonFile == "ERROR":
+            return()
+        jsonFile[year][programme].update({selected_intake_month : {}})
+        self.ui.jsonraw.setText(json.dumps(jsonFile))
+        mywindow.LoadData(self)
 
     def delete_programm(self):
         #

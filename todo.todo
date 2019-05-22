@@ -1,3 +1,34 @@
 To do list to make this the dopest
 python based scheduling platform ever
 
+Adding and deleting functions
+✔ Add function add years @done(19-05-22 14:45)
+✔ Add function to delete years @done(19-05-22 14:46)
+✔ Add function to add programmes @done(19-05-22 14:46)
+✔ Add function delete programmes @done(19-05-22 14:46)
+✔ Add function add intakes @done(19-05-22 14:46)
+☐ Add function to delete intakes
+☐ Add function to add sessions
+☐ Add function to delete sessions
+
+Syncing details
+✔ Add function to sync year details to selection @done(19-05-22 17:01)
+☐ Add function to sync programme details to selection
+☐ Add function to sync intake to details to selection
+☐ Add function to sync session details to selction
+
+Clone details
+☐ Add function to clone year
+☐ Add function to clone programmes
+☐ Add function to clone intakes
+☐ Add function to clone sessions
+
+Copying Details
+☐ Add function to copy intake to clipboard
+☐ Add function to copy session to clipboard
+
+Misc
+✔ Change copy to clone in the GUI designer @done(19-05-22 16:50)
+✔ Add copy under string boxes to GUI @done(19-05-22 16:50)
+☐ Add amusing help window
+✔ Add function to add items to clone combo on reload @started(19-05-22 17:03) @done(19-05-22 17:14) @lasted(11m55s)
